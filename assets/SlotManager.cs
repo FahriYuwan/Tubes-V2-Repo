@@ -9,10 +9,13 @@ public class SlotManager : MonoBehaviour, IDropHandler
     {
         GameObject droppedObject = eventData.pointerDrag;
         // set scale to 0.65f
-        // droppedObject.transform.localScale = new Vector3(0.65f, 0.65f, 0.65f);
-        droppedObject.transform.localScale = new Vector3(droppedObject.transform.localScale.x * 0.75f, droppedObject.transform.localScale.y * 0.75f, droppedObject.transform.localScale.z * 0.75f);
+        droppedObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
         Grabbable grabbable = droppedObject.GetComponent<Grabbable>();
         grabbable.originalParent = transform;
-        
+        // get the card manager from parent
+        CardManager cardManager = transform.parent.GetComponent<CardManager>();
+        // check the card type, insert the int type to the list
+        cardManager.cards.Add(grabbable.type);
+
     }
 }

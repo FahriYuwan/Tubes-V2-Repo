@@ -7,17 +7,27 @@ using UnityEngine.EventSystems;
 public class Grabbable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image image;
+    public int type;
     [HideInInspector] public Transform originalParent;
+    GameObject duplicate;
     
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Begin Drag");
-        // set scale to 1.74f
-        // transform.localScale = new Vector3(1.74f, 1.74f, 1.74f);
         originalParent = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
+        if (originalParent.GetComponent<SlotManager>() == null)
+        {
+            duplicate = Instantiate(gameObject, transform.position, transform.rotation);
+            duplicate.transform.SetParent(originalParent);
+            Image duplicateImage = duplicate.GetComponent<Image>();
+            if (duplicateImage != null)
+            {
+                duplicateImage.raycastTarget = true;
+            }
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -31,5 +41,10 @@ public class Grabbable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         Debug.Log("End Drag");
         transform.SetParent(originalParent);
         image.raycastTarget = true;
+        // if parent of this object doesnt have slotManager, destroy clone object
+        if (originalParent.GetComponent<SlotManager>() == null)
+        {
+            Destroy(duplicate);
+        }
     }
 }
