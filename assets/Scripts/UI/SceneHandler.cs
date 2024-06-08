@@ -6,111 +6,137 @@ using UnityEngine.EventSystems;
 
 public class SceneHandler : MonoBehaviour
 {
-    public Animator transition;
-    public GameObject MainMenu, LevelSelect, AboutTheGameMenu, SettingsMainMenu, playerBlock;
-    bool LevelSelectOn, AboutTheGameOn, MenuSettingsOn = false;
-    string temp;
-    public AudioSource ClickSound;
+    public GameObject MainMenu, pilihLantai, caraBermain, Credits;
+    bool pilihLantaiOn = false, caraBermainOn = false, creditsOn = false;
+    public AudioSource ClickSound, MainMenuMusic;
+    
+    void Start()
+    {
+        var audioControl = FindObjectOfType<AudioControl>();
+        if (audioControl != null)
+        {
+            // Memutar musik MainMenuMusic secara looping
+            audioControl.PlayMusic("MainMenuMusic");
+        }
+        else
+        {
+            Debug.LogError("AudioControl not found in the scene!");
+        }
+        MainMenu.SetActive(true);
+        pilihLantai.SetActive(false);
+        caraBermain.SetActive(false);
+        Credits.SetActive(false);
 
-    /*
-    Yes, this is the worst code I have ever written.
-    There is 0 orginization within this code.
-    Maybe I will get around to orginizing it.
-    I am so sorry for anyone reading this.
-
-    2/28/22
-    Code cleaned, no longer "that" bad
-
-    Need to get player data and change color depending on if player reached that level
-    */
+        // Ensure ClickSound does not loop
+        if (ClickSound != null)
+        {
+            ClickSound.loop = false;
+        }
+    }
 
     public void PlayButtonPressed()
     {
-        if (LevelSelectOn)
+        PlayClickSound();
+        // Toggle between MainMenu and pilihLantai
+        if (pilihLantaiOn)
         {
-            MainMenu.SetActive(true);
-            LevelSelect.SetActive(false);
+            ShowMainMenu();
         }
         else
         {
-            MainMenu.SetActive(false);
-            LevelSelect.SetActive(true);
+            ShowPilihLantai();
         }
-        ClickSound.Play();
-        LevelSelectOn = !LevelSelectOn;
     }
 
-    public void reLoadCurrentScene()
+    public void ReturnToMainMenu()
     {
-        StartCoroutine(AnimationLoad(SceneManager.GetActiveScene().name));
+        PlayClickSound();
+        ShowMainMenu();
     }
 
-    public void returnToMainMenu()
+    public void HowToPlayButtonPressed()
     {
-        StartCoroutine(AnimationLoad("Main Menu"));
-    }
-
-    public void LevelSelectLevelOptionClicked() 
-    {
-        temp = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.name;
-        temp.Substring(4);
-        // Check to make sure that level can be played here
-
-        StartCoroutine(AnimationLoad(temp));
-    }
-
-    public void AboutTheGameButtonPressed()
-    {
-        if (AboutTheGameOn)
+        PlayClickSound();
+        // Toggle between MainMenu and caraBermain
+        if (caraBermainOn)
         {
-            MainMenu.SetActive(true);
-            AboutTheGameMenu.SetActive(false);
+            ShowMainMenu();
         }
         else
         {
-            MainMenu.SetActive(false);
-            AboutTheGameMenu.SetActive(true);
+            ShowCaraBermain();
         }
-        ClickSound.Play();
-        AboutTheGameOn = !AboutTheGameOn;
     }
 
-    private void Start()
+    public void CreditsButtonPressed()
     {
-        FindObjectOfType<AudioControl>().PlayMusic("MainMenuMusic");
-    }
-
-    public void SettingsButtonPressed()
-    {
-        if (MenuSettingsOn)
+        PlayClickSound();
+        // Toggle between MainMenu and Credits
+        if (creditsOn)
         {
-            MainMenu.SetActive(true);
-            SettingsMainMenu.SetActive(false);
+            ShowMainMenu();
         }
         else
         {
-            MainMenu.SetActive(false);
-            SettingsMainMenu.SetActive(true);
+            ShowCredits();
         }
-        ClickSound.Play();
-        MenuSettingsOn = !MenuSettingsOn;
     }
 
-    IEnumerator AnimationLoad(string sceneName)
+    public void QuitGame()
     {
-        // Play animation
-        transition.SetTrigger("Start");
-        // Wait
-        yield return new WaitForSeconds(1); // Change depending on transistion time
-        if (sceneName == "MainMenu")
+        PlayClickSound();
+        Application.Quit();
+    }
+
+    private void ShowMainMenu()
+    {
+        MainMenu.SetActive(true);
+        pilihLantai.SetActive(false);
+        caraBermain.SetActive(false);
+        Credits.SetActive(false);
+        pilihLantaiOn = false;
+        caraBermainOn = false;
+        creditsOn = false;
+    }
+
+    private void ShowPilihLantai()
+    {
+        MainMenu.SetActive(false);
+        pilihLantai.SetActive(true);
+        caraBermain.SetActive(false);
+        Credits.SetActive(false);
+        pilihLantaiOn = true;
+        caraBermainOn = false;
+        creditsOn = false;
+    }
+
+    private void ShowCaraBermain()
+    {
+        MainMenu.SetActive(false);
+        pilihLantai.SetActive(false);
+        caraBermain.SetActive(true);
+        Credits.SetActive(false);
+        pilihLantaiOn = false;
+        caraBermainOn = true;
+        creditsOn = false;
+    }
+
+    private void ShowCredits()
+    {
+        MainMenu.SetActive(false);
+        pilihLantai.SetActive(false);
+        caraBermain.SetActive(false);
+        Credits.SetActive(true);
+        pilihLantaiOn = false;
+        caraBermainOn = false;
+        creditsOn = true;
+    }
+
+    private void PlayClickSound()
+    {
+        if (ClickSound != null)
         {
-            FindObjectOfType<AudioControl>().PlayMusic("MainMenu");
+            ClickSound.Play();
         }
-        else
-        {
-            FindObjectOfType<AudioControl>().PlayMusic("GameMusic");
-        }
-        //Load Scene
-        SceneManager.LoadScene(sceneName);
     }
 }

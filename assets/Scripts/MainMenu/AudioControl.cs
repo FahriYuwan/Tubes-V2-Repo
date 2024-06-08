@@ -24,7 +24,6 @@ public class AudioControl : MonoBehaviour
         {
             _audioSources[lastTrackIndex].volume -= fadeSpeed * 2;
             _audioSources[playingTrackIndex].volume += fadeSpeed * 2;
-            //Debug.Log("Fade: " + lastTrackName + " " + _audioSources[lastTrackIndex].volume.ToString() + " Rise: " + playingTrackName + " " + _audioSources[playingTrackIndex].volume.ToString());
             yield return new WaitForSeconds(0.001f);
             lastTrackVolume = _audioSources[lastTrackIndex].volume;
             playingTrackVolume = _audioSources[playingTrackIndex].volume;
@@ -44,7 +43,6 @@ public class AudioControl : MonoBehaviour
         while (_audioSources[playingTrackIndex].volume < 1f)
         {
             _audioSources[playingTrackIndex].volume += fadeSpeed * 2;
-            //Debug.Log("Fading In: " + _audioSources[track_index].volume.ToString());
             yield return new WaitForSeconds(0.001f);
             playingTrackVolume = _audioSources[playingTrackIndex].volume;
         }
@@ -57,6 +55,12 @@ public class AudioControl : MonoBehaviour
     {
         DontDestroyOnLoad(transform.gameObject);
         _audioSources = GetComponentsInChildren<AudioSource>();
+
+        // Set all audio sources to loop
+        foreach (var audioSource in _audioSources)
+        {
+            audioSource.loop = true;
+        }
     }
 
     public void PlayMusic(string transformName)
@@ -71,15 +75,15 @@ public class AudioControl : MonoBehaviour
                 break;
             }
         }
-            if (isPlaying)
-            {
-                Debug.Log("Fading in new music - Fading out old music");
-                StartCoroutine(FadeOutOldMusic_FadeInNewMusic());
-            }
-            else
-            {
-                Debug.Log("Fading in new music");
-                StartCoroutine(FadeInNewMusic());
-            }
+        if (isPlaying)
+        {
+            Debug.Log("Fading in new music - Fading out old music");
+            StartCoroutine(FadeOutOldMusic_FadeInNewMusic());
+        }
+        else
+        {
+            Debug.Log("Fading in new music");
+            StartCoroutine(FadeInNewMusic());
+        }
     }
 }
