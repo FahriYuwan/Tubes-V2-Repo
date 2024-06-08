@@ -5,8 +5,6 @@ using UnityEngine;
 public class CharController : MonoBehaviour
 {
     public Animator animator;
-<<<<<<< HEAD
-=======
     public CardManager cardManager;
     // four directions
     string[] directions = {"front", "right", "back", "left"};
@@ -24,30 +22,17 @@ public class CharController : MonoBehaviour
 
     Quaternion startRot;
     Quaternion endRot;
->>>>>>> e87d200794e2447c436b855a305d326d455656c6
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-<<<<<<< HEAD
-=======
         startPos = transform.position;
         startRot = transform.rotation;
->>>>>>> e87d200794e2447c436b855a305d326d455656c6
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        if (Input.GetKey(KeyCode.W))
-        {
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-=======
         if (sw)
         {
             int card = cardManager.cards[cardIndex];
@@ -190,7 +175,6 @@ public class CharController : MonoBehaviour
                 Debug.Log("Attack");
             }
             yield return new WaitForSeconds(0.5f); // wait for half a second
->>>>>>> e87d200794e2447c436b855a305d326d455656c6
         }
     }
 }
