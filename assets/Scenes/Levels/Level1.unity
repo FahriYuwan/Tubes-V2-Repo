@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 975928912}
-  m_IndirectSpecularColor: {r: 0.61881214, g: 0.7338426, b: 0.76859134, a: 1}
+  m_IndirectSpecularColor: {r: 0.6181191, g: 0.6893613, b: 0.75583464, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -414,7 +414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1634, y: 644.5}
+  m_AnchoredPosition: {x: 1634, y: 639}
   m_SizeDelta: {x: -3708, y: -2039}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &49984364
@@ -2659,7 +2659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -331, y: -852.24}
+  m_AnchoredPosition: {x: -331, y: -843}
   m_SizeDelta: {x: -1144.146, y: -1765.9116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &794309508
@@ -4013,7 +4013,7 @@ Skybox:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165012675}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
+  m_CustomSkybox: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
 --- !u!114 &1165012678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4074,7 +4074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1374.7499, y: 0}
+  m_AnchoredPosition: {x: -1421.7571, y: 0}
   m_SizeDelta: {x: 2749.5, y: 373.41}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1193675581
@@ -4769,9 +4769,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -318.51282, y: 224.7315}
-  m_SizeDelta: {x: -1099.0269, y: 358.5367}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -318.51282, y: -843}
+  m_SizeDelta: {x: -1099.0269, y: -1783.4633}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428851002
 MonoBehaviour:
@@ -6275,6 +6275,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3643131405979284195, guid: 5297aab0984de8d48b94ade8d57825e9,
+        type: 3}
+      propertyPath: m_CustomSkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: efd1c33efd2d58340b88804268e6833f, type: 2}
     - target: {fileID: 3786480232389341025, guid: 5297aab0984de8d48b94ade8d57825e9,
         type: 3}
       propertyPath: m_RootOrder
