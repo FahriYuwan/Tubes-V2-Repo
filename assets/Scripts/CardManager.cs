@@ -35,16 +35,68 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    IEnumerator shiftCards(int index)
+    public void shiftCards(int index, int droppedIndex)
     {
-        yield return new WaitForSeconds(0.1f);
-        // shift all cards from index to the right
-        for (int i = index; i < transform.childCount; i++)
+        // how do I get the index of the dropped object?
+        if (droppedIndex == -1)
         {
+            shiftRight(index);
+            return;
+        }
+        else if (index == droppedIndex)
+        {
+            Debug.Log("Same index");
+            return;
+        }
+        else if (index < droppedIndex)
+        {
+            Debug.Log("Index is less than dropped index");
+            shiftRight(index);
+        }
+        else if (index > droppedIndex)
+        {
+            Debug.Log("Index is greater than dropped index");
+            shiftLeft(index);
+        }
+    }
+
+    void shiftRight(int index) {
+        // shift all cards from index to the right
+        for (int i = index; i < cards.Count; i++)
+        {
+            // if only one child, continue
+            if (transform.GetChild(i).childCount == 1 && i != index)
+            {
+                Debug.Log("No child found");
+                continue;
+            }
             // get the current i card
-            Transform card = transform.GetChild(i);
-            // change its sibling index to i+1
-            card.SetSiblingIndex(i + 1);
+            Transform cardSlot = transform.GetChild(i);
+            // get the card in the card slot
+            Transform card = cardSlot.GetChild(0);
+            // set the parent of card to be the next card slot
+            card.GetComponent<Grabbable>().originalParent = transform.GetChild(i + 1);
+            card.SetParent(transform.GetChild(i + 1));
+        }
+    }
+
+    void shiftLeft(int index) {
+        // shift all cards from index to the left
+        for (int i = index; i >= 0; i--)
+        {
+            // if only one child, continue
+            if (transform.GetChild(i).childCount == 1 && i != index)
+            {
+                Debug.Log("No child found");
+                continue;
+            }
+            // get the current i card
+            Transform cardSlot = transform.GetChild(i);
+            // get the card in the card slot
+            Transform card = cardSlot.GetChild(0);
+            // set the parent of card to be the next card slot
+            card.GetComponent<Grabbable>().originalParent = transform.GetChild(i - 1);
+            card.SetParent(transform.GetChild(i - 1));
         }
     }
 }

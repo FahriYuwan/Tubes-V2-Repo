@@ -13,7 +13,6 @@ public class Grabbable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
         originalParent = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
@@ -32,13 +31,11 @@ public class Grabbable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Stay Drag");
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
         transform.SetParent(originalParent);
         image.raycastTarget = true;
         // if parent of this object doesnt have slotManager, destroy clone object
