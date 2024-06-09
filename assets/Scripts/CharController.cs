@@ -16,6 +16,7 @@ public class CharController : MonoBehaviour
     float speed = 0.02f;
 
     bool sw = false;
+    bool boundary = false;
 
     Vector3 startPos;
     Vector3 endPos;
@@ -39,7 +40,7 @@ public class CharController : MonoBehaviour
             elapsedTime += Time.deltaTime * speed;
             float perc = elapsedTime / desiredTime;
 
-            if (card == 1)
+            if (card == 1 && !boundary)
             {
                 if (directions[currentDirection] == "front")
                 {
@@ -117,64 +118,34 @@ public class CharController : MonoBehaviour
 
     public void Execute()
     {
-        // StartCoroutine(ShowCards());
         sw = true;
     }
 
     void cycleAxis(int turn) {
         if (turn == 0) {
-            currentDirection++;
+            currentDirection = (currentDirection + 1) % directions.Length;
         } else {
-            currentDirection--;
+            currentDirection = (currentDirection - 1 + directions.Length) % directions.Length;
+        }
+        Debug.Log("Current direction: " + currentDirection);
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        // check if other object parent is tagged 
+        if (other.transform.parent.tag == "Bounds")
+        {
+            boundary = true;
         }
     }
 
-    IEnumerator Wait()
+    void OnTriggerExit(Collider other)
     {
-        yield return new WaitForSeconds(1);
-    }
-
-    IEnumerator ShowCards()
-    {
-        foreach (var card in cardManager.cards)
+        // check if other object parent is tagged 
+        if (other.transform.parent.tag == "Bounds")
         {
-            if (card == 1)
-            {
-                // transform.position += new Vector3(lX, lY, lZ);
-                if (directions[currentDirection] == "front")
-                {
-                    transform.position += new Vector3(0, 0, -1);
-                }
-                else if (directions[currentDirection] == "right")
-                {
-                    transform.position += new Vector3(-1, 0, 0);
-                }
-                else if (directions[currentDirection] == "back")
-                {
-                    transform.position += new Vector3(0, 0, 1);
-                }
-                else if (directions[currentDirection] == "left")
-                {
-                    transform.position += new Vector3(1, 0, 0);
-                }
-            }
-            else if (card == 2)
-            {
-                // add 90 to y rotation
-                transform.Rotate(0, 90, 0);
-                cycleAxis(0);
-            }
-            else if (card == 3)
-            {
-                transform.Rotate(0, -90, 0);
-                cycleAxis(1);
-            }
-            else if (card == 4)
-            {
-                // Debug.Log("Attack");
-                Debug.Log("Attack");
-            }
-            yield return new WaitForSeconds(0.5f); // wait for half a second
+            Debug.Log("Boundary exited");
+            boundary = false;
         }
     }
 }

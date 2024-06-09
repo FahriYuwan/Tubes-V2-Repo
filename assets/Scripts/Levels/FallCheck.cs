@@ -57,7 +57,7 @@ public class FallCheck : MonoBehaviour
 
     void Start()
     {
-        playerBlock = GameObject.Find("Block Player");
+        playerBlock = GameObject.Find("character");
         rbPlayerBlock = playerBlock.GetComponent<Rigidbody>();
         Outliner = GameObject.Find("Outliner");
         SaveData = GameObject.Find("EventSystem").GetComponent<SaveData>();

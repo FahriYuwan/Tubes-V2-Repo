@@ -10,15 +10,16 @@ public class SlotManager : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         GameObject droppedObject = eventData.pointerDrag;
-        droppedObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
-        Grabbable grabbable = droppedObject.GetComponent<Grabbable>();
-
+    
         // check if dropped object has a Grabbable component
         if (!droppedObject.GetComponent<Grabbable>())
         {
             Debug.Log("No Grabbable component found");
             return;
         }
+
+        droppedObject.transform.localScale = new Vector3(0.35f, 0.35f, 0.35f);
+        Grabbable grabbable = droppedObject.GetComponent<Grabbable>();
 
         // check if original parent of dropped object has a SlotManager component
         if (droppedObject.GetComponent<Grabbable>().originalParent.GetComponent<SlotManager>())
