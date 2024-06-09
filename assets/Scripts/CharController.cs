@@ -27,6 +27,9 @@ public class CharController : MonoBehaviour
 
     Quaternion startRot;
     Quaternion endRot;
+
+    [SerializeField] GameObject winScreen; 
+    [SerializeField] GameObject winBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +129,12 @@ public class CharController : MonoBehaviour
                 if (cardIndex >= cardManager.cards.Count)
                 {
                     Reset();
+                    // check child named "winBox" from this gameobject and check getWin() method if true
+                    if (winBox.GetComponent<checkWin>().getWin())
+                    {
+                        Time.timeScale = 0;
+                        winScreen.SetActive(true);
+                    }
                 }
             }
         }
@@ -138,6 +147,7 @@ public class CharController : MonoBehaviour
 
     public void Reset()
     {
+        Debug.Log("Resetting");
         transform.position = initPos;
         transform.rotation = initRot;
         startPos = initPos;
