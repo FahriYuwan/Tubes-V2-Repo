@@ -9,6 +9,7 @@ TagManager:
   - Bounds
   - ActiveBounds
   - Barrier
+  - Enemy
   layers:
   - Default
   - TransparentFX
