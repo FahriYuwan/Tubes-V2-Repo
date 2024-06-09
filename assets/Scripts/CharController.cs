@@ -16,6 +16,7 @@ public class CharController : MonoBehaviour
     float speed = 0.02f;
 
     bool sw = false;
+    bool setBeforeBoundary = false;
     bool boundary = false;
 
     Vector3 startPos;
@@ -100,8 +101,15 @@ public class CharController : MonoBehaviour
             {
                 elapsedTime = 0f;
                 cardIndex++;
+
                 startPos = transform.position;
                 startRot = transform.rotation;
+
+                if (setBeforeBoundary)
+                {
+                    boundary = true;
+                }
+
                 if (cardIndex >= cardManager.cards.Count)
                 {
                     sw = false;
@@ -135,7 +143,8 @@ public class CharController : MonoBehaviour
         // check if other object parent is tagged 
         if (other.transform.parent.tag == "Bounds")
         {
-            boundary = true;
+            Debug.Log("Boundary entered");
+            setBeforeBoundary = true;
         }
     }
 
@@ -146,6 +155,7 @@ public class CharController : MonoBehaviour
         {
             Debug.Log("Boundary exited");
             boundary = false;
+            setBeforeBoundary = false;
         }
     }
 }
