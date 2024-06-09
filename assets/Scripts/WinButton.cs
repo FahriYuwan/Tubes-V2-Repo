@@ -9,8 +9,14 @@ public class WinButton : MonoBehaviour
 
     public void Selanjutnya()
     {
-        Debug.Log("Level selanjutnya");
-        // SceneManager.LoadScene("Level2");
+        // get current scene index, add 1, load next scene
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
+        // but if the this scene is "Level3", load "MainMenu"
+        if (SceneManager.GetActiveScene().name == "Level3")
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     public void Restart()
