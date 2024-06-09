@@ -19,6 +19,9 @@ public class CharController : MonoBehaviour
     bool setBeforeBoundary = false;
     bool boundary = false;
 
+    Vector3 initPos;
+    Quaternion initRot;
+
     Vector3 startPos;
     Vector3 endPos;
 
@@ -28,6 +31,10 @@ public class CharController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        initPos = transform.position;
+        initRot = transform.rotation;
+
         startPos = transform.position;
         startRot = transform.rotation;
     }
@@ -37,6 +44,12 @@ public class CharController : MonoBehaviour
     {
         if (sw)
         {
+            if (cardManager.cards.Count == 0)
+            {
+                sw = false;
+                return;
+            }
+
             int card = cardManager.cards[cardIndex];
             elapsedTime += Time.deltaTime * speed;
             float perc = elapsedTime / desiredTime;
@@ -112,21 +125,42 @@ public class CharController : MonoBehaviour
 
                 if (cardIndex >= cardManager.cards.Count)
                 {
-                    sw = false;
-                    cardIndex = 0;
+                    Reset();
                 }
             }
         }
     }
 
-    public void cardIterator()
-    {
-        cardIndex++;
-    }
-
     public void Execute()
     {
         sw = true;
+    }
+
+    public void Reset()
+    {
+        transform.position = initPos;
+        transform.rotation = initRot;
+        startPos = initPos;
+        currentDirection = 0;
+        cardIndex = 0;
+        elapsedTime = 0f;
+        sw = false;
+        setBeforeBoundary = false;
+        boundary = false;
+    }
+
+    public void ResetButton() {
+        Reset();
+        // delete all cards gameobject except the first one, but still delete the child of it
+        foreach (Transform child in cardManager.transform)
+        {
+            if (child.GetSiblingIndex() != 0)
+            {
+                Destroy(child.gameObject);
+            } else {
+                Destroy(child.GetChild(0).gameObject);
+            }
+        }
     }
 
     void cycleAxis(int turn) {
