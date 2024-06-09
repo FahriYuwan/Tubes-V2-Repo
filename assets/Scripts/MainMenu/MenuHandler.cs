@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class MenuHandler : MonoBehaviour
 {
     public GameObject MainMenu, pilihLantai, caraBermain, Credits;
-    bool pilihLantaiOn = false, caraBermainOn = false, creditsOn = false;
     public AudioSource ClickSound, MainMenuMusic;
     public float fadeDuration = 1.0f;
 
@@ -24,10 +23,7 @@ public class MenuHandler : MonoBehaviour
         {
             Debug.LogError("AudioControl not found in the scene!");
         }
-        MainMenu.SetActive(true);
-        pilihLantai.SetActive(false);
-        caraBermain.SetActive(false);
-        Credits.SetActive(false);
+        ShowMainMenu();
 
         // Ensure ClickSound does not loop
         if (ClickSound != null)
@@ -39,15 +35,7 @@ public class MenuHandler : MonoBehaviour
     public void PlayButtonPressed()
     {
         PlayClickSound();
-        // Toggle between MainMenu and pilihLantai
-        if (pilihLantaiOn)
-        {
-            ShowMainMenu();
-        }
-        else
-        {
-            ShowPilihLantai();
-        }
+        ShowPilihLantai();
     }
 
     public void ReturnToMainMenu()
@@ -59,29 +47,13 @@ public class MenuHandler : MonoBehaviour
     public void HowToPlayButtonPressed()
     {
         PlayClickSound();
-        // Toggle between MainMenu and caraBermain
-        if (caraBermainOn)
-        {
-            ShowMainMenu();
-        }
-        else
-        {
-            ShowCaraBermain();
-        }
+        ShowCaraBermain();
     }
 
     public void CreditsButtonPressed()
     {
         PlayClickSound();
-        // Toggle between MainMenu and Credits
-        if (creditsOn)
-        {
-            ShowMainMenu();
-        }
-        else
-        {
-            ShowCredits();
-        }
+        ShowCredits();
     }
 
     public void QuitGame()
@@ -96,9 +68,6 @@ public class MenuHandler : MonoBehaviour
         pilihLantai.SetActive(false);
         caraBermain.SetActive(false);
         Credits.SetActive(false);
-        pilihLantaiOn = false;
-        caraBermainOn = false;
-        creditsOn = false;
     }
 
     private void ShowPilihLantai()
@@ -107,9 +76,6 @@ public class MenuHandler : MonoBehaviour
         pilihLantai.SetActive(true);
         caraBermain.SetActive(false);
         Credits.SetActive(false);
-        pilihLantaiOn = true;
-        caraBermainOn = false;
-        creditsOn = false;
     }
 
     private void ShowCaraBermain()
@@ -118,9 +84,6 @@ public class MenuHandler : MonoBehaviour
         pilihLantai.SetActive(false);
         caraBermain.SetActive(true);
         Credits.SetActive(false);
-        pilihLantaiOn = false;
-        caraBermainOn = true;
-        creditsOn = false;
     }
 
     private void ShowCredits()
@@ -129,9 +92,6 @@ public class MenuHandler : MonoBehaviour
         pilihLantai.SetActive(false);
         caraBermain.SetActive(false);
         Credits.SetActive(true);
-        pilihLantaiOn = false;
-        caraBermainOn = false;
-        creditsOn = true;
     }
 
     private void PlayClickSound()
