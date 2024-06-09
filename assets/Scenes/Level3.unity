@@ -671,10 +671,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -958,10 +973,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1146,10 +1176,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1240,10 +1285,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2668,10 +2728,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3572,10 +3647,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8143710011712545758, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3760,10 +3850,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4042,10 +4147,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4517,10 +4637,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4987,10 +5122,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5886,10 +6036,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7159,10 +7324,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8457,10 +8637,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9872,10 +10067,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
+    - target: {fileID: -804731622281664130, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f6305116bc3ab9e4cbb91bcf51c3d143, type: 2}
     - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
         type: 3}
       propertyPath: m_Name
       value: crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75bcdb6a8ae184706a8cc602b7f6843d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
