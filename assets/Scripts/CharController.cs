@@ -19,6 +19,9 @@ public class CharController : MonoBehaviour
     bool setBeforeBoundary = false;
     bool boundary = false;
 
+    bool enemyAhead = false;
+    private GameObject enemy;
+
     Vector3 initPos;
     Quaternion initRot;
 
@@ -30,6 +33,8 @@ public class CharController : MonoBehaviour
 
     [SerializeField] GameObject winScreen; 
     [SerializeField] GameObject winBox;
+    
+    [SerializeField] GameObject[] crates;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +45,8 @@ public class CharController : MonoBehaviour
 
         startPos = transform.position;
         startRot = transform.rotation;
+
+        crates = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -108,7 +115,16 @@ public class CharController : MonoBehaviour
             else if (card == 4)
             {
                 animator.SetBool("isMoving", false);
-                Debug.Log("Attack");
+
+                if (enemyAhead)
+                {
+                    // make enemy nonactive
+                    enemy.SetActive(false);
+                    Debug.Log("Attack enemy");
+                    enemyAhead = false;
+                    boundary = false;
+                    setBeforeBoundary = false;
+                }
             }
             if (elapsedTime >= speed)
             {
@@ -155,6 +171,11 @@ public class CharController : MonoBehaviour
         setBeforeBoundary = false;
         boundary = false;
         animator.SetBool("isMoving", false);
+
+        foreach (GameObject crate in crates)
+        {
+            crate.SetActive(true);
+        }
     }
 
     public void ResetButton() {
@@ -169,6 +190,7 @@ public class CharController : MonoBehaviour
                 Destroy(child.GetChild(0).gameObject);
             }
         }
+        
     }
 
     void cycleAxis(int turn) {
@@ -188,6 +210,14 @@ public class CharController : MonoBehaviour
             Debug.Log("Boundary entered");
             setBeforeBoundary = true;
         }
+        // check if other object is tagged Enemy
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Enemy detected");
+            setBeforeBoundary = true;
+            enemy = other.gameObject;
+            enemyAhead = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -196,6 +226,14 @@ public class CharController : MonoBehaviour
         if (other.transform.parent.tag == "Bounds")
         {
             Debug.Log("Boundary exited");
+            boundary = false;
+            setBeforeBoundary = false;
+        }
+        // check if other object is tagged Enemy
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Enemy not ahead");
+            enemyAhead = false;
             boundary = false;
             setBeforeBoundary = false;
         }
