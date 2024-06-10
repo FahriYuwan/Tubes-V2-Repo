@@ -53,7 +53,7 @@ public class AudioControl : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        // DontDestroyOnLoad(transform.gameObject);
         _audioSources = GetComponentsInChildren<AudioSource>();
 
         // Set all audio sources to loop

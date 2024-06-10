@@ -31,7 +31,7 @@ public class WinButton : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("Main Menu");
-        // SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void Exit()
