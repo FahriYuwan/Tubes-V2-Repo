@@ -30,8 +30,29 @@ public class MenuHandler : MonoBehaviour
         {
             ClickSound.loop = false;
         }
-    }
 
+        // Check if it's the first time the game is run
+        if (!PlayerPrefs.HasKey("isInitialized"))
+        {
+            // Initialize levelReached and ReachedIndex
+            PlayerPrefs.SetInt("levelReached", 1); // Start at level 1 by default
+            PlayerPrefs.SetInt("ReachedIndex", 1); // Start at index 1 by default
+            
+            // Set an initialization flag
+            PlayerPrefs.SetInt("isInitialized", 1);
+            PlayerPrefs.Save();
+
+            Debug.Log("PlayerPrefs initialized: levelReached set to 1, ReachedIndex set to 1");
+        }
+        else
+        {
+            Debug.Log("PlayerPrefs already initialized");
+        }
+
+        Debug.Log("ReachedIndex: " + PlayerPrefs.GetInt("ReachedIndex"));
+        Debug.Log("levelReached: " + PlayerPrefs.GetInt("levelReached"));
+    }
+    
     public void PlayButtonPressed()
     {
         PlayClickSound();
