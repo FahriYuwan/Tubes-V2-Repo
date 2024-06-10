@@ -10,6 +10,7 @@ public class WinButton : MonoBehaviour
     public void Selanjutnya()
     {
         // get current scene index, add 1, load next scene
+        Time.timeScale = 1f;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
         // but if the this scene is "Level3", load "MainMenu"
@@ -28,12 +29,14 @@ public class WinButton : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         Debug.Log("Main Menu");
         // SceneManager.LoadScene("MainMenu");
     }
 
     public void Exit()
     {
+        Time.timeScale = 1f;
         Debug.Log("Exit...");
         Application.Quit();
     }
