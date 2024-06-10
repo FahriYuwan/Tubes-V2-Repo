@@ -12,6 +12,7 @@ public class PilihLantai : MonoBehaviour
     private void Awake()
     {
         int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        Debug.Log("levelReached: " + levelReached);
         for (int i = 0; i < levelButtons.Length; i++)
         {
             if (i + 1 > levelReached)
@@ -21,6 +22,14 @@ public class PilihLantai : MonoBehaviour
         }
     }
 
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.SetInt("levelReached", 1);
+        PlayerPrefs.SetInt("ReachedIndex", 1);
+        PlayerPrefs.Save();
+        Debug.Log("PlayerPrefs reset: levelReached set to 1, ReachedIndex set to 1");
+        Awake();
+    }
     private void PlayClickSound()
     {
         if (ClickSound != null)

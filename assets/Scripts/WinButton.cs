@@ -16,7 +16,7 @@ public class WinButton : MonoBehaviour
         // but if the this scene is "Level3", load "MainMenu"
         if (SceneManager.GetActiveScene().name == "Level3")
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Main Menu");
         }
     }
 
@@ -31,7 +31,7 @@ public class WinButton : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("Main Menu");
-        // SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void Exit()
