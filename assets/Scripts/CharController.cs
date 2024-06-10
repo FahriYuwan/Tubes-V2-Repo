@@ -8,7 +8,7 @@ public class CharController : MonoBehaviour
     public CardManager cardManager;
     // four directions
     string[] directions = {"front", "right", "back", "left"};
-    int currentDirection = 0;
+    int currentDirection = 2;
     int cardIndex = 0;
 
     float elapsedTime = 0f;
@@ -19,6 +19,9 @@ public class CharController : MonoBehaviour
     bool setBeforeBoundary = false;
     bool boundary = false;
 
+    bool enemyAhead = false;
+    private GameObject enemy;
+
     Vector3 initPos;
     Quaternion initRot;
 
@@ -27,6 +30,11 @@ public class CharController : MonoBehaviour
 
     Quaternion startRot;
     Quaternion endRot;
+
+    [SerializeField] GameObject winScreen; 
+    [SerializeField] GameObject winBox;
+    
+    [SerializeField] GameObject[] crates;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +45,8 @@ public class CharController : MonoBehaviour
 
         startPos = transform.position;
         startRot = transform.rotation;
+
+        crates = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -47,6 +57,7 @@ public class CharController : MonoBehaviour
             if (cardManager.cards.Count == 0)
             {
                 sw = false;
+                animator.SetBool("isMoving", false);
                 return;
             }
 
@@ -56,6 +67,7 @@ public class CharController : MonoBehaviour
 
             if (card == 1 && !boundary)
             {
+                animator.SetBool("isMoving", true);
                 if (directions[currentDirection] == "front")
                 {
                     // transform.position += new Vector3(0, 0, -1);
@@ -67,26 +79,22 @@ public class CharController : MonoBehaviour
                 {
                     // transform.position += new Vector3(-1, 0, 0);
                     endPos = startPos + new Vector3(-1, 0, 0);
-                    transform.position = Vector3.Lerp(transform.position, endPos, perc);
                 }
                 else if (directions[currentDirection] == "back")
                 {
                     // transform.position += new Vector3(0, 0, 1);
                     endPos = startPos + new Vector3(0, 0, 1);
-                    transform.position = Vector3.Lerp(transform.position, endPos, perc);
                 }
                 else if (directions[currentDirection] == "left")
                 {
                     // transform.position += new Vector3(1, 0, 0);
                     endPos = startPos + new Vector3(1, 0, 0);
-                    transform.position = Vector3.Lerp(transform.position, endPos, perc);
                 }
+                transform.position = Vector3.Lerp(transform.position, endPos, perc);
             }
             else if (card == 2)
             {
-                // add 90 to y rotation
-                // transform.Rotate(0, 90, 0);
-                // use lerp
+                animator.SetBool("isMoving", false);
                 endRot = startRot * Quaternion.Euler(0, 90, 0);
                 transform.rotation = Quaternion.Lerp(transform.rotation, endRot, perc);
                 if (elapsedTime >= speed)
@@ -96,8 +104,7 @@ public class CharController : MonoBehaviour
             }
             else if (card == 3)
             {
-                // transform.Rotate(0, -90, 0);
-                // use lerp
+                animator.SetBool("isMoving", false);
                 endRot = startRot * Quaternion.Euler(0, -90, 0);
                 transform.rotation = Quaternion.Lerp(transform.rotation, endRot, perc);
                 if (elapsedTime >= speed)
@@ -107,8 +114,17 @@ public class CharController : MonoBehaviour
             }
             else if (card == 4)
             {
-                // Debug.Log("Attack");
-                Debug.Log("Attack");
+                animator.SetBool("isMoving", false);
+
+                if (enemyAhead)
+                {
+                    // make enemy nonactive
+                    enemy.SetActive(false);
+                    Debug.Log("Attack enemy");
+                    enemyAhead = false;
+                    boundary = false;
+                    setBeforeBoundary = false;
+                }
             }
             if (elapsedTime >= speed)
             {
@@ -126,6 +142,12 @@ public class CharController : MonoBehaviour
                 if (cardIndex >= cardManager.cards.Count)
                 {
                     Reset();
+                    // check child named "winBox" from this gameobject and check getWin() method if true
+                    if (winBox.GetComponent<checkWin>().getWin())
+                    {
+                        Time.timeScale = 0;
+                        winScreen.SetActive(true);
+                    }
                 }
             }
         }
@@ -138,15 +160,22 @@ public class CharController : MonoBehaviour
 
     public void Reset()
     {
+        Debug.Log("Resetting");
         transform.position = initPos;
         transform.rotation = initRot;
         startPos = initPos;
-        currentDirection = 0;
+        currentDirection = 2;
         cardIndex = 0;
         elapsedTime = 0f;
         sw = false;
         setBeforeBoundary = false;
         boundary = false;
+        animator.SetBool("isMoving", false);
+
+        foreach (GameObject crate in crates)
+        {
+            crate.SetActive(true);
+        }
     }
 
     public void ResetButton() {
@@ -161,6 +190,7 @@ public class CharController : MonoBehaviour
                 Destroy(child.GetChild(0).gameObject);
             }
         }
+        
     }
 
     void cycleAxis(int turn) {
@@ -180,6 +210,14 @@ public class CharController : MonoBehaviour
             Debug.Log("Boundary entered");
             setBeforeBoundary = true;
         }
+        // check if other object is tagged Enemy
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Enemy detected");
+            setBeforeBoundary = true;
+            enemy = other.gameObject;
+            enemyAhead = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -188,6 +226,14 @@ public class CharController : MonoBehaviour
         if (other.transform.parent.tag == "Bounds")
         {
             Debug.Log("Boundary exited");
+            boundary = false;
+            setBeforeBoundary = false;
+        }
+        // check if other object is tagged Enemy
+        if (other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Enemy not ahead");
+            enemyAhead = false;
             boundary = false;
             setBeforeBoundary = false;
         }
