@@ -115,11 +115,12 @@ public class CharController : MonoBehaviour
             else if (card == 4)
             {
                 animator.SetBool("isMoving", false);
-
+                animator.SetBool("IsSlashing", true);
                 if (enemyAhead)
                 {
-                    // make enemy nonactive
-                    enemy.SetActive(false);
+                    // make enemy nonactive in 0.5 seconds
+                    StartCoroutine(WaitEnemy(1f));
+                    // enemy.SetActive(false);
                     Debug.Log("Attack enemy");
                     enemyAhead = false;
                     boundary = false;
@@ -128,6 +129,8 @@ public class CharController : MonoBehaviour
             }
             if (elapsedTime >= speed)
             {
+                animator.SetBool("IsSlashing", false);
+
                 elapsedTime = 0f;
                 cardIndex++;
 
@@ -200,6 +203,12 @@ public class CharController : MonoBehaviour
             currentDirection = (currentDirection - 1 + directions.Length) % directions.Length;
         }
         Debug.Log("Current direction: " + currentDirection);
+    }
+
+    IEnumerator WaitEnemy(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        enemy.SetActive(false);
     }
 
     void OnTriggerStay(Collider other)
